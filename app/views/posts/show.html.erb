@@ -1,0 +1,21 @@
+<div class="container alert alert-light">
+
+  <h1 class="mt-4"><%= @post.title %></h1>
+
+  <hr>
+
+  <%= Category.find(@post.category_id).name  %>
+
+  <hr>
+  
+  <p>
+    <%= image_tag @post.image %>
+  </p>
+
+  <hr>
+
+  <p>
+    <%= @post.body %>
+  </p>
+  <p>
+  </p>
