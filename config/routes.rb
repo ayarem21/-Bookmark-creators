@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
+  resources :posts
+
   scope :admin do
     resources :categories, controller: 'backoffice/categories', as: 'admin_categories'
   end

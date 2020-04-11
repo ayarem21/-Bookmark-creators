@@ -1,0 +1,10 @@
+<%= form_with(model: @post, local: true) do |form| %>
+
+  <div class = "field">
+    <%= form.text_field :url, class: "form-control"%>
+  </div>
+  <%= form.select :category_id, Category.all.pluck(:name,:id),{} ,{class: "js-source-states"}%>
+  <div class="actions">
+    <%= form.submit :Done, class: "btn btn-warning btn-sm"  %>
+  </div>
+<% end %>
