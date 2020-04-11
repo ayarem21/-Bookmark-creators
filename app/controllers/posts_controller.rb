@@ -21,12 +21,23 @@ class PostsController < ApplicationController
     #   render :new
     # end
     site = Nokogiri::HTML.parse(open(post_params["url"]))
-    title = site.css('div.content-single__block div.content-single__block_title h1').text
-    body = site.css('div.content-single__block div.content-single__block_text div.content-single__block_text_body p').text
-    image = site.css('div.content-single__block__img img').attr('src')
-    resource = site.css('a h1').first.text
-    puts resource
+    resource = site.css('a h1').first
+    if(resource != nil)
+      resource = site.css('a h1').first.text
+      title = site.css('div.content-single__block div.content-single__block_title h1').text
+      body = site.css('div.content-single__block div.content-single__block_text div.content-single__block_text_body p').text
+      image = site.css('div.content-single__block__img img').attr('src')
+    else
+      resource = site.css('img').first.attr('alt')
 
+      title = site.css('div.publication-text-area.text-container h1').text
+      body = site.css('div.publication-text-area.text-container div.publication-sticky-container p').text
+      image = site.css('div.publication-sticky-container div.publication-img-wrapper img').first.attr('src')
+    end
+
+
+
+    puts resource
     puts title
     puts body
     puts image
