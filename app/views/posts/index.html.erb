@@ -1,0 +1,23 @@
+<%= link_to "New post", new_post_path, class:"btn btn-primary" %>
+<% @posts.each do |post| %>
+  <div class="container alert alert-light">
+    <div class="list group-item">
+      <div>
+        <strong>Title:</strong>
+      </div>
+      <div><%= link_to post.title, post %></div>
+
+      <div><%= post.resource %></div>
+
+      <div>
+        <strong>Body:</strong>
+      </div>
+
+      <div><%= post.body %></div>
+
+      <div><%= image_tag(post.image) %></div>
+
+      <div><%=post.resource%></div>
+    </div>
+  </div>
+<% end %>

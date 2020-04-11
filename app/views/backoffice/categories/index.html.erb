@@ -1,0 +1,17 @@
+<div class="">
+  <%= link_to "New category", new_admin_category_path, class:"btn btn-outline-primary"%>
+</div>
+
+<table>
+  <% @categories.each do |category| %>
+    <tr>
+      <td>
+        <%= category.name %>
+      </td>
+      <td>
+        <%= link_to "Edit", edit_admin_category_path(category), class:"btn btn-outline-warning"%>
+        <%= link_to "Delete", admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger"%></td>
+      </td>
+    </tr>
+  <% end %>
+</table>
