@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: test_project_development
+  pool: 5
+  username: artem
+  password: 123
+  timeout: 5000
+  host: localhost
