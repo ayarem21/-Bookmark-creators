@@ -13,13 +13,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    # @post = Post.new(post_params)
-    # if @post.save
-    #   redirect_to root_path
-    #   flash[:notice] = 'Category has been created'
-    # else
-    #   render :new
-    # end
     site = Nokogiri::HTML.parse(open(post_params["url"]))
     resource = site.css('a h1').first
     if(resource != nil)
@@ -34,9 +27,6 @@ class PostsController < ApplicationController
       body = site.css('div.publication-text-area.text-container div.publication-sticky-container p').text
       image = site.css('div.publication-sticky-container div.publication-img-wrapper img').first.attr('src')
     end
-
-
-
     puts resource
     puts title
     puts body
